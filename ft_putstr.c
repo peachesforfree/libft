@@ -6,7 +6,7 @@
 /*   By: sbalcort <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:43:33 by sbalcort          #+#    #+#             */
-/*   Updated: 2017/03/08 20:51:03 by sbalcort         ###   ########.fr       */
+/*   Updated: 2018/02/10 23:57:34 by sbalcort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void		ft_putstr(char const *s)
 {
-	int i;
+	int	i;
 
 	if (!s)
 		return ;
 	i = -1;
-	while (s[++i])
-		ft_putchar(s[i]);
+	while (s[i])
+		write(1, &s[i], 1);
 }

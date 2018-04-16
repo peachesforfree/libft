@@ -6,7 +6,7 @@
 #    By: sbalcort <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/02 14:16:46 by sbalcort          #+#    #+#              #
-#    Updated: 2017/03/19 23:10:28 by sbalcort         ###   ########.fr        #
+#    Updated: 2018/02/07 10:29:57 by sbalcort         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I. -c
 RM = rm -f
+DONE = echo "done"
 SRCS = ft_atoi.c \
 	   ft_bzero.c \
 	   ft_isalnum.c \
@@ -77,21 +78,32 @@ SRCS = ft_atoi.c \
 	   ft_pow.c \
 	   ft_realloc.c \
 	   ft_calloc.c \
-	   ft_freearr.c
+	   ft_freearr.c \
+	   ft_readalloc.c \
+	   ft_2dintarray.c \
+	   get_next_line.c \
+	   ft_dblist_new.c \
+	   ft_dblist_after.c \
+	   ft_fronttrim.c \
+	   ft_dblist_free.c \
+	   ft_dblist_bridge.c
+
 OBJ = $(SRCS:%.c=%.o)
 
 $(NAME):
-	$(CC) $(CFLAGS) $(SRCS)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@echo "compiling LIBFT"
+	@$(CC) $(CFLAGS) $(SRCS)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@$(DONE)
 
 all: $(NAME)
 
 clean:
-		$(RM) $(OBJ)
+	@$(RM) $(OBJ)
 
 fclean:	clean	
-		$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
 

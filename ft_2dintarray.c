@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_freearr.c                                       :+:      :+:    :+:   */
+/*   ft_2dintarray.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbalcort <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sbalcort <sbalcort@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/28 15:33:52 by sbalcort          #+#    #+#             */
-/*   Updated: 2017/03/08 20:46:35 by sbalcort         ###   ########.fr       */
+/*   Created: 2017/07/17 15:27:36 by sbalcort          #+#    #+#             */
+/*   Updated: 2017/07/17 15:36:31 by sbalcort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_freearr(void **array)
+int		**ft_2dintarray(size_t x, size_t y)
 {
-	int i;
+	int		**array;
+	size_t	i;
 
 	i = 0;
-	while (array[i])
+	array = ft_memalloc(sizeof(int *) * (y + 1));
+	while (i <= y)
 	{
-		ft_bzero(array[i], sizeof(array[i]));
-		free(array[i]);
+		if (!(array[i] = ft_memalloc(sizeof(int) * x)))
+		{
+			ft_freearr((void**)array);
+			return (NULL);
+		}
+		i++;
 	}
-	return (0);
+	array[y + 1] = NULL;
+	return (array);
 }

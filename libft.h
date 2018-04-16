@@ -6,7 +6,7 @@
 /*   By: sbalcort <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 15:36:47 by sbalcort          #+#    #+#             */
-/*   Updated: 2017/03/19 23:01:32 by sbalcort         ###   ########.fr       */
+/*   Updated: 2018/02/07 10:28:11 by sbalcort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
+
+# define BUFF_SIZE 64
+# define INT_MAX 500
 
 typedef struct		s_list
 {
@@ -23,6 +27,22 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct  s_dblist
+{
+    struct s_dblist    *next;
+    struct s_dblist    *last;
+    void        *content;
+}               t_dblist;
+
+t_dblist      		*ft_dblist_new(void);
+t_dblist      		*double_insert_after(t_dblist *current);
+char				*ft_fronttrim(char *string);
+void	            ft_dblist_free(t_dblist *list);
+void				ft_dblist_bridge(t_dblist *first, t_dblist *second);
+
+int					get_next_line(const int fd, char **line);
+int					**ft_2dintarray(size_t x, size_t y);
+char				*ft_read_alloc(int fd);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
