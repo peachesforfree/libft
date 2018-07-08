@@ -6,7 +6,7 @@
 /*   By: sbalcort <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 15:36:47 by sbalcort          #+#    #+#             */
-/*   Updated: 2018/02/07 10:28:11 by sbalcort         ###   ########.fr       */
+/*   Updated: 2018/07/05 19:00:27 by sbalcort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-
 # define BUFF_SIZE 64
 # define INT_MAX 500
 
