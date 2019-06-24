@@ -86,7 +86,9 @@ SRCS = ft_atoi.c \
 	   ft_dblist_after.c \
 	   ft_fronttrim.c \
 	   ft_dblist_free.c \
-	   ft_dblist_bridge.c
+	   ft_dblist_bridge.c \
+	   ft_alloc_node.c \
+	   ft_queue.c
 
 OBJ = $(SRCS:%.c=%.o)
 
